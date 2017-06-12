@@ -56,7 +56,6 @@ Partial Class Form1
         Me.Btn_simpan = New System.Windows.Forms.Button()
         Me.Btn_reset = New System.Windows.Forms.Button()
         Me.Btn_delete = New System.Windows.Forms.Button()
-        Me.Btn_update = New System.Windows.Forms.Button()
         Me.Tfilter = New System.Windows.Forms.TextBox()
         Me.Label15 = New System.Windows.Forms.Label()
         Me.Button1 = New System.Windows.Forms.Button()
@@ -366,43 +365,34 @@ Partial Class Form1
         '
         'Btn_simpan
         '
-        Me.Btn_simpan.Location = New System.Drawing.Point(5, 9)
+        Me.Btn_simpan.Location = New System.Drawing.Point(12, 7)
         Me.Btn_simpan.Name = "Btn_simpan"
-        Me.Btn_simpan.Size = New System.Drawing.Size(75, 23)
+        Me.Btn_simpan.Size = New System.Drawing.Size(96, 52)
         Me.Btn_simpan.TabIndex = 20
-        Me.Btn_simpan.Text = "Simpan"
+        Me.Btn_simpan.Text = "Simpan "
         Me.Btn_simpan.UseVisualStyleBackColor = True
         '
         'Btn_reset
         '
-        Me.Btn_reset.Location = New System.Drawing.Point(86, 9)
+        Me.Btn_reset.Location = New System.Drawing.Point(114, 7)
         Me.Btn_reset.Name = "Btn_reset"
-        Me.Btn_reset.Size = New System.Drawing.Size(75, 23)
+        Me.Btn_reset.Size = New System.Drawing.Size(109, 23)
         Me.Btn_reset.TabIndex = 21
         Me.Btn_reset.Text = "Reset"
         Me.Btn_reset.UseVisualStyleBackColor = True
         '
         'Btn_delete
         '
-        Me.Btn_delete.Location = New System.Drawing.Point(86, 38)
+        Me.Btn_delete.Location = New System.Drawing.Point(114, 36)
         Me.Btn_delete.Name = "Btn_delete"
-        Me.Btn_delete.Size = New System.Drawing.Size(75, 23)
+        Me.Btn_delete.Size = New System.Drawing.Size(109, 23)
         Me.Btn_delete.TabIndex = 23
         Me.Btn_delete.Text = "Delete"
         Me.Btn_delete.UseVisualStyleBackColor = True
         '
-        'Btn_update
-        '
-        Me.Btn_update.Location = New System.Drawing.Point(5, 38)
-        Me.Btn_update.Name = "Btn_update"
-        Me.Btn_update.Size = New System.Drawing.Size(75, 23)
-        Me.Btn_update.TabIndex = 22
-        Me.Btn_update.Text = "Update"
-        Me.Btn_update.UseVisualStyleBackColor = True
-        '
         'Tfilter
         '
-        Me.Tfilter.Location = New System.Drawing.Point(289, 186)
+        Me.Tfilter.Location = New System.Drawing.Point(289, 298)
         Me.Tfilter.Name = "Tfilter"
         Me.Tfilter.Size = New System.Drawing.Size(62, 20)
         Me.Tfilter.TabIndex = 23
@@ -410,7 +400,7 @@ Partial Class Form1
         'Label15
         '
         Me.Label15.AutoSize = True
-        Me.Label15.Location = New System.Drawing.Point(286, 166)
+        Me.Label15.Location = New System.Drawing.Point(286, 278)
         Me.Label15.Name = "Label15"
         Me.Label15.Size = New System.Drawing.Size(35, 13)
         Me.Label15.TabIndex = 24
@@ -418,9 +408,9 @@ Partial Class Form1
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(5, 67)
+        Me.Button1.Location = New System.Drawing.Point(11, 65)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(156, 23)
+        Me.Button1.Size = New System.Drawing.Size(212, 23)
         Me.Button1.TabIndex = 25
         Me.Button1.Text = "View Report"
         Me.Button1.UseVisualStyleBackColor = True
@@ -434,12 +424,11 @@ Partial Class Form1
         '
         Me.Panel1.Controls.Add(Me.Btn_delete)
         Me.Panel1.Controls.Add(Me.Button1)
-        Me.Panel1.Controls.Add(Me.Btn_update)
         Me.Panel1.Controls.Add(Me.Btn_simpan)
         Me.Panel1.Controls.Add(Me.Btn_reset)
-        Me.Panel1.Location = New System.Drawing.Point(356, 158)
+        Me.Panel1.Location = New System.Drawing.Point(289, 158)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(168, 95)
+        Me.Panel1.Size = New System.Drawing.Size(235, 95)
         Me.Panel1.TabIndex = 0
         '
         'Form1
@@ -500,7 +489,6 @@ Partial Class Form1
     Friend WithEvents Btn_simpan As Button
     Friend WithEvents Btn_reset As Button
     Friend WithEvents Btn_delete As Button
-    Friend WithEvents Btn_update As Button
     Friend WithEvents Tfilter As TextBox
     Friend WithEvents CJnsKel As ComboBox
     Friend WithEvents Label15 As Label

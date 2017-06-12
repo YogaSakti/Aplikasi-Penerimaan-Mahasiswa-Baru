@@ -7,29 +7,6 @@ Public Class Form1
     Dim dr As OdbcDataReader
     Dim ds As DataSet
     Dim table As DataTable
-
-    Sub Bersikan()
-        Tnisn.Text = ""
-        Tnama.Text = ""
-        Ttmplhr.Text = ""
-        Dtgllahir.Value = Now
-        Cagama.Text = ""
-        CJnsKel.Text = ""
-        Talmt.Text = ""
-        Tnohp.Text = ""
-        Temail.Text = ""
-        Taslskl.Text = ""
-        Cplh1.Text = ""
-        Cplh2.Text = ""
-        Cjlrpend.Text = ""
-
-    End Sub
-    Sub Baru()
-        tampilkan_data()
-        otomatis()
-        Bersikan()
-    End Sub
-
     Sub koneksi()
         conn = New OdbcConnection(DSN)
         If conn.State = ConnectionState.Closed Then
@@ -49,6 +26,26 @@ Public Class Form1
         Dim oto As String = "DFT" + Format(Now, "ddMMyyh")
         Tnopendaftaran.Text = oto
     End Sub
+    Sub Bersikan()
+        Tnisn.Text = ""
+        Tnama.Text = ""
+        Ttmplhr.Text = ""
+        Dtgllahir.Value = Now
+        Cagama.Text = ""
+        CJnsKel.Text = ""
+        Talmt.Text = ""
+        Tnohp.Text = ""
+        Temail.Text = ""
+        Taslskl.Text = ""
+        Cplh1.Text = ""
+        Cplh2.Text = ""
+        Cjlrpend.Text = ""
+    End Sub
+    Sub Baru()
+        tampilkan_data()
+        otomatis()
+        Bersikan()
+    End Sub
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Baru()
     End Sub
@@ -58,24 +55,53 @@ Public Class Form1
             Tnisn.Focus()
         Else
             koneksi()
-            cmd = New OdbcCommand("insert into data_pmb values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", conn)
-            With cmd
-                .Parameters.AddWithValue("?", Tnisn.Text)
-                .Parameters.AddWithValue("?", Tnama.Text)
-                .Parameters.AddWithValue("?", Ttmplhr.Text)
-                .Parameters.AddWithValue("?", Dtgllahir.Value)
-                .Parameters.AddWithValue("?", CJnsKel.Text)
-                .Parameters.AddWithValue("?", Cagama.Text)
-                .Parameters.AddWithValue("?", Talmt.Text)
-                .Parameters.AddWithValue("?", Tnohp.Text)
-                .Parameters.AddWithValue("?", Temail.Text)
-                .Parameters.AddWithValue("?", Taslskl.Text)
-                .Parameters.AddWithValue("?", Cplh1.Text)
-                .Parameters.AddWithValue("?", Cplh2.Text)
-                .Parameters.AddWithValue("?", Cjlrpend.Text)
-                .Parameters.AddWithValue("?", Tnopendaftaran.Text)
-                .ExecuteNonQuery()
-            End With
+            cmd = New OdbcCommand("SELECT NISN FROM data_pmb WHERE NISN = '" + Tnisn.Text + "'", conn)
+            dr = cmd.ExecuteReader
+            dr.Read()
+            If Not dr.HasRows Then
+                koneksi()
+                cmd = New OdbcCommand("insert into data_pmb values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", conn)
+                With cmd
+                    .Parameters.AddWithValue("?", Tnisn.Text)
+                    .Parameters.AddWithValue("?", Tnama.Text)
+                    .Parameters.AddWithValue("?", Ttmplhr.Text)
+                    .Parameters.AddWithValue("?", Format(Dtgllahir.Value, "yyyy-MM-dd"))
+                    .Parameters.AddWithValue("?", CJnsKel.Text)
+                    .Parameters.AddWithValue("?", Cagama.Text)
+                    .Parameters.AddWithValue("?", Talmt.Text)
+                    .Parameters.AddWithValue("?", Tnohp.Text)
+                    .Parameters.AddWithValue("?", Temail.Text)
+                    .Parameters.AddWithValue("?", Taslskl.Text)
+                    .Parameters.AddWithValue("?", Cplh1.Text)
+                    .Parameters.AddWithValue("?", Cplh2.Text)
+                    .Parameters.AddWithValue("?", Cjlrpend.Text)
+                    .Parameters.AddWithValue("?", Tnopendaftaran.Text)
+                    .ExecuteNonQuery()
+                End With
+                MsgBox("Data berhasil di tambahkan")
+            Else
+                koneksi()
+                cmd = New OdbcCommand("Update data_pmb SET Nama_mhs = ?, Tempat_lhr = ?,Tanggal_lhr = ?,Jenis_kel  = ?,Agama = ?,Alamat_mhs = ?,No_hp = ?,Email = ?,Asal_sekolah = ?,Pilihan_1 = ?, Pilihan_2 = ?,Jalur_daftar = ?,	No_daftar = ? Where NISN = ?", conn)
+                With cmd
+                    .Parameters.AddWithValue("?", Tnama.Text)
+                    .Parameters.AddWithValue("?", Ttmplhr.Text)
+                    .Parameters.AddWithValue("?", Format(Dtgllahir.Value, "yyyy-MM-dd"))
+                    .Parameters.AddWithValue("?", CJnsKel.Text)
+                    .Parameters.AddWithValue("?", Cagama.Text)
+                    .Parameters.AddWithValue("?", Talmt.Text)
+                    .Parameters.AddWithValue("?", Tnohp.Text)
+                    .Parameters.AddWithValue("?", Temail.Text)
+                    .Parameters.AddWithValue("?", Taslskl.Text)
+                    .Parameters.AddWithValue("?", Cplh1.Text)
+                    .Parameters.AddWithValue("?", Cplh2.Text)
+                    .Parameters.AddWithValue("?", Cjlrpend.Text)
+                    .Parameters.AddWithValue("?", Tnopendaftaran.Text)
+                    .Parameters.AddWithValue("?", Tnisn.Text)
+                    .ExecuteNonQuery()
+                End With
+                MsgBox("Data berhasil di perbarui")
+                conn.Close()
+            End If
             conn.Close()
             Baru()
         End If
@@ -106,16 +132,11 @@ Public Class Form1
             Tnisn.Focus()
         End If
         dr.Close()
-        cmd.Dispose()
         conn.Close()
     End Sub
 
     Private Sub Btn_reset_Click(sender As Object, e As EventArgs) Handles Btn_reset.Click
         Baru()
-    End Sub
-
-    Private Sub Btn_update_Click(sender As Object, e As EventArgs) Handles Btn_update.Click
-
     End Sub
 
     Private Sub Btn_delete_Click(sender As Object, e As EventArgs) Handles Btn_delete.Click
@@ -124,10 +145,12 @@ Public Class Form1
         ElseIf MsgBox("Apakah Anda yakin ingin menghapus data ini?", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
             koneksi()
                 cmd = New OdbcCommand("Delete from data_pmb Where NISN = '" & Tnisn.Text & "'", conn)
-                cmd.ExecuteNonQuery()
+            cmd.ExecuteNonQuery()
+            MsgBox("Data berhasil di hapus!")
             conn.Close()
         End If
-        Baru()
+        Bersikan()
+        tampilkan_data()
     End Sub
 
     Private Sub Tfilter_TextChanged(sender As Object, e As EventArgs) Handles Tfilter.TextChanged
@@ -142,6 +165,7 @@ Public Class Form1
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Bersikan()
         Report.Show()
     End Sub
 End Class
