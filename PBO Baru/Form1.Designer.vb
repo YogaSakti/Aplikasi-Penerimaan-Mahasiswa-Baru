@@ -40,11 +40,10 @@ Partial Class Form1
         Me.Tnama = New System.Windows.Forms.TextBox()
         Me.Ttmplhr = New System.Windows.Forms.TextBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.CJnsKel = New System.Windows.Forms.ComboBox()
         Me.Taslskl = New System.Windows.Forms.TextBox()
         Me.Cagama = New System.Windows.Forms.ComboBox()
-        Me.Rperempuan = New System.Windows.Forms.RadioButton()
         Me.Temail = New System.Windows.Forms.TextBox()
-        Me.Rlakilaki = New System.Windows.Forms.RadioButton()
         Me.Dtgllahir = New System.Windows.Forms.DateTimePicker()
         Me.Tnohp = New System.Windows.Forms.TextBox()
         Me.Talmt = New System.Windows.Forms.TextBox()
@@ -56,14 +55,14 @@ Partial Class Form1
         Me.DVG = New System.Windows.Forms.DataGridView()
         Me.Btn_simpan = New System.Windows.Forms.Button()
         Me.Btn_reset = New System.Windows.Forms.Button()
-        Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Btn_delete = New System.Windows.Forms.Button()
         Me.Btn_update = New System.Windows.Forms.Button()
-        Me.Tsearch = New System.Windows.Forms.TextBox()
+        Me.Tfilter = New System.Windows.Forms.TextBox()
+        Me.Label15 = New System.Windows.Forms.Label()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.DVG, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
         'Label1
@@ -215,13 +214,12 @@ Partial Class Form1
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.CJnsKel)
         Me.GroupBox1.Controls.Add(Me.Taslskl)
         Me.GroupBox1.Controls.Add(Me.Cagama)
         Me.GroupBox1.Controls.Add(Me.Label10)
         Me.GroupBox1.Controls.Add(Me.Label9)
-        Me.GroupBox1.Controls.Add(Me.Rperempuan)
         Me.GroupBox1.Controls.Add(Me.Temail)
-        Me.GroupBox1.Controls.Add(Me.Rlakilaki)
         Me.GroupBox1.Controls.Add(Me.Dtgllahir)
         Me.GroupBox1.Controls.Add(Me.Label8)
         Me.GroupBox1.Controls.Add(Me.Tnohp)
@@ -243,6 +241,15 @@ Partial Class Form1
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Data Diri"
         '
+        'CJnsKel
+        '
+        Me.CJnsKel.FormattingEnabled = True
+        Me.CJnsKel.Items.AddRange(New Object() {"Laki Laki", "Perempuan"})
+        Me.CJnsKel.Location = New System.Drawing.Point(90, 125)
+        Me.CJnsKel.Name = "CJnsKel"
+        Me.CJnsKel.Size = New System.Drawing.Size(102, 21)
+        Me.CJnsKel.TabIndex = 21
+        '
         'Taslskl
         '
         Me.Taslskl.Location = New System.Drawing.Point(90, 289)
@@ -253,21 +260,11 @@ Partial Class Form1
         'Cagama
         '
         Me.Cagama.FormattingEnabled = True
+        Me.Cagama.Items.AddRange(New Object() {"ISLAM", "KATOLIK", "KRISTEN", "HINDU", "BUDHA", "KONGHUCHU"})
         Me.Cagama.Location = New System.Drawing.Point(90, 150)
         Me.Cagama.Name = "Cagama"
         Me.Cagama.Size = New System.Drawing.Size(102, 21)
         Me.Cagama.TabIndex = 20
-        '
-        'Rperempuan
-        '
-        Me.Rperempuan.AutoSize = True
-        Me.Rperempuan.Location = New System.Drawing.Point(168, 126)
-        Me.Rperempuan.Name = "Rperempuan"
-        Me.Rperempuan.Size = New System.Drawing.Size(79, 17)
-        Me.Rperempuan.TabIndex = 19
-        Me.Rperempuan.TabStop = True
-        Me.Rperempuan.Text = "Perempuan"
-        Me.Rperempuan.UseVisualStyleBackColor = True
         '
         'Temail
         '
@@ -275,17 +272,6 @@ Partial Class Form1
         Me.Temail.Name = "Temail"
         Me.Temail.Size = New System.Drawing.Size(168, 20)
         Me.Temail.TabIndex = 19
-        '
-        'Rlakilaki
-        '
-        Me.Rlakilaki.AutoSize = True
-        Me.Rlakilaki.Location = New System.Drawing.Point(90, 126)
-        Me.Rlakilaki.Name = "Rlakilaki"
-        Me.Rlakilaki.Size = New System.Drawing.Size(68, 17)
-        Me.Rlakilaki.TabIndex = 18
-        Me.Rlakilaki.TabStop = True
-        Me.Rlakilaki.Text = "Laki Laki"
-        Me.Rlakilaki.UseVisualStyleBackColor = True
         '
         'Dtgllahir
         '
@@ -362,15 +348,21 @@ Partial Class Form1
         '
         'DVG
         '
+        Me.DVG.AllowUserToAddRows = False
+        Me.DVG.AllowUserToDeleteRows = False
+        Me.DVG.AllowUserToOrderColumns = True
+        Me.DVG.AllowUserToResizeColumns = False
+        Me.DVG.AllowUserToResizeRows = False
         Me.DVG.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DVG.Location = New System.Drawing.Point(7, 342)
+        Me.DVG.Location = New System.Drawing.Point(12, 363)
         Me.DVG.Name = "DVG"
-        Me.DVG.Size = New System.Drawing.Size(518, 165)
+        Me.DVG.ReadOnly = True
+        Me.DVG.Size = New System.Drawing.Size(513, 165)
         Me.DVG.TabIndex = 19
         '
         'Btn_simpan
         '
-        Me.Btn_simpan.Location = New System.Drawing.Point(34, 14)
+        Me.Btn_simpan.Location = New System.Drawing.Point(361, 166)
         Me.Btn_simpan.Name = "Btn_simpan"
         Me.Btn_simpan.Size = New System.Drawing.Size(75, 23)
         Me.Btn_simpan.TabIndex = 20
@@ -379,27 +371,16 @@ Partial Class Form1
         '
         'Btn_reset
         '
-        Me.Btn_reset.Location = New System.Drawing.Point(136, 14)
+        Me.Btn_reset.Location = New System.Drawing.Point(442, 166)
         Me.Btn_reset.Name = "Btn_reset"
         Me.Btn_reset.Size = New System.Drawing.Size(75, 23)
         Me.Btn_reset.TabIndex = 21
         Me.Btn_reset.Text = "Reset"
         Me.Btn_reset.UseVisualStyleBackColor = True
         '
-        'Panel1
-        '
-        Me.Panel1.Controls.Add(Me.Btn_delete)
-        Me.Panel1.Controls.Add(Me.Btn_update)
-        Me.Panel1.Controls.Add(Me.Btn_reset)
-        Me.Panel1.Controls.Add(Me.Btn_simpan)
-        Me.Panel1.Location = New System.Drawing.Point(289, 169)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(236, 78)
-        Me.Panel1.TabIndex = 22
-        '
         'Btn_delete
         '
-        Me.Btn_delete.Location = New System.Drawing.Point(136, 43)
+        Me.Btn_delete.Location = New System.Drawing.Point(442, 195)
         Me.Btn_delete.Name = "Btn_delete"
         Me.Btn_delete.Size = New System.Drawing.Size(75, 23)
         Me.Btn_delete.TabIndex = 23
@@ -408,27 +389,50 @@ Partial Class Form1
         '
         'Btn_update
         '
-        Me.Btn_update.Location = New System.Drawing.Point(34, 43)
+        Me.Btn_update.Location = New System.Drawing.Point(361, 195)
         Me.Btn_update.Name = "Btn_update"
         Me.Btn_update.Size = New System.Drawing.Size(75, 23)
         Me.Btn_update.TabIndex = 22
         Me.Btn_update.Text = "Update"
         Me.Btn_update.UseVisualStyleBackColor = True
         '
-        'Tsearch
+        'Tfilter
         '
-        Me.Tsearch.Location = New System.Drawing.Point(289, 253)
-        Me.Tsearch.Name = "Tsearch"
-        Me.Tsearch.Size = New System.Drawing.Size(53, 20)
-        Me.Tsearch.TabIndex = 23
+        Me.Tfilter.Location = New System.Drawing.Point(289, 186)
+        Me.Tfilter.Name = "Tfilter"
+        Me.Tfilter.Size = New System.Drawing.Size(62, 20)
+        Me.Tfilter.TabIndex = 23
+        '
+        'Label15
+        '
+        Me.Label15.AutoSize = True
+        Me.Label15.Location = New System.Drawing.Point(286, 166)
+        Me.Label15.Name = "Label15"
+        Me.Label15.Size = New System.Drawing.Size(35, 13)
+        Me.Label15.TabIndex = 24
+        Me.Label15.Text = "Filter: "
+        '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(361, 224)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(156, 23)
+        Me.Button1.TabIndex = 25
+        Me.Button1.Text = "View Report"
+        Me.Button1.UseVisualStyleBackColor = True
         '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(536, 519)
-        Me.Controls.Add(Me.Tsearch)
-        Me.Controls.Add(Me.Panel1)
+        Me.ClientSize = New System.Drawing.Size(536, 540)
+        Me.Controls.Add(Me.Btn_delete)
+        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.Btn_update)
+        Me.Controls.Add(Me.Label15)
+        Me.Controls.Add(Me.Btn_simpan)
+        Me.Controls.Add(Me.Btn_reset)
+        Me.Controls.Add(Me.Tfilter)
         Me.Controls.Add(Me.DVG)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
@@ -439,7 +443,6 @@ Partial Class Form1
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
         CType(Me.DVG, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.Panel1.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -465,9 +468,7 @@ Partial Class Form1
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents Taslskl As TextBox
     Friend WithEvents Cagama As ComboBox
-    Friend WithEvents Rperempuan As RadioButton
     Friend WithEvents Temail As TextBox
-    Friend WithEvents Rlakilaki As RadioButton
     Friend WithEvents Dtgllahir As DateTimePicker
     Friend WithEvents Tnohp As TextBox
     Friend WithEvents Talmt As TextBox
@@ -479,8 +480,10 @@ Partial Class Form1
     Friend WithEvents DVG As DataGridView
     Friend WithEvents Btn_simpan As Button
     Friend WithEvents Btn_reset As Button
-    Friend WithEvents Panel1 As Panel
     Friend WithEvents Btn_delete As Button
     Friend WithEvents Btn_update As Button
-    Friend WithEvents Tsearch As TextBox
+    Friend WithEvents Tfilter As TextBox
+    Friend WithEvents CJnsKel As ComboBox
+    Friend WithEvents Label15 As Label
+    Friend WithEvents Button1 As Button
 End Class
