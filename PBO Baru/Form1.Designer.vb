@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class Form1
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class Form1
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -60,9 +60,13 @@ Partial Class Form1
         Me.Tfilter = New System.Windows.Forms.TextBox()
         Me.Label15 = New System.Windows.Forms.Label()
         Me.Button1 = New System.Windows.Forms.Button()
+        Me.PmbDataSet1 = New PBO_Baru.pmbDataSet()
+        Me.Panel1 = New System.Windows.Forms.Panel()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.DVG, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PmbDataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
         'Label1
@@ -354,7 +358,7 @@ Partial Class Form1
         Me.DVG.AllowUserToResizeColumns = False
         Me.DVG.AllowUserToResizeRows = False
         Me.DVG.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DVG.Location = New System.Drawing.Point(12, 363)
+        Me.DVG.Location = New System.Drawing.Point(12, 342)
         Me.DVG.Name = "DVG"
         Me.DVG.ReadOnly = True
         Me.DVG.Size = New System.Drawing.Size(513, 165)
@@ -362,7 +366,7 @@ Partial Class Form1
         '
         'Btn_simpan
         '
-        Me.Btn_simpan.Location = New System.Drawing.Point(361, 166)
+        Me.Btn_simpan.Location = New System.Drawing.Point(5, 9)
         Me.Btn_simpan.Name = "Btn_simpan"
         Me.Btn_simpan.Size = New System.Drawing.Size(75, 23)
         Me.Btn_simpan.TabIndex = 20
@@ -371,7 +375,7 @@ Partial Class Form1
         '
         'Btn_reset
         '
-        Me.Btn_reset.Location = New System.Drawing.Point(442, 166)
+        Me.Btn_reset.Location = New System.Drawing.Point(86, 9)
         Me.Btn_reset.Name = "Btn_reset"
         Me.Btn_reset.Size = New System.Drawing.Size(75, 23)
         Me.Btn_reset.TabIndex = 21
@@ -380,7 +384,7 @@ Partial Class Form1
         '
         'Btn_delete
         '
-        Me.Btn_delete.Location = New System.Drawing.Point(442, 195)
+        Me.Btn_delete.Location = New System.Drawing.Point(86, 38)
         Me.Btn_delete.Name = "Btn_delete"
         Me.Btn_delete.Size = New System.Drawing.Size(75, 23)
         Me.Btn_delete.TabIndex = 23
@@ -389,7 +393,7 @@ Partial Class Form1
         '
         'Btn_update
         '
-        Me.Btn_update.Location = New System.Drawing.Point(361, 195)
+        Me.Btn_update.Location = New System.Drawing.Point(5, 38)
         Me.Btn_update.Name = "Btn_update"
         Me.Btn_update.Size = New System.Drawing.Size(75, 23)
         Me.Btn_update.TabIndex = 22
@@ -414,24 +418,37 @@ Partial Class Form1
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(361, 224)
+        Me.Button1.Location = New System.Drawing.Point(5, 67)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(156, 23)
         Me.Button1.TabIndex = 25
         Me.Button1.Text = "View Report"
         Me.Button1.UseVisualStyleBackColor = True
         '
+        'PmbDataSet1
+        '
+        Me.PmbDataSet1.DataSetName = "pmbDataSet"
+        Me.PmbDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'Panel1
+        '
+        Me.Panel1.Controls.Add(Me.Btn_delete)
+        Me.Panel1.Controls.Add(Me.Button1)
+        Me.Panel1.Controls.Add(Me.Btn_update)
+        Me.Panel1.Controls.Add(Me.Btn_simpan)
+        Me.Panel1.Controls.Add(Me.Btn_reset)
+        Me.Panel1.Location = New System.Drawing.Point(356, 158)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(168, 95)
+        Me.Panel1.TabIndex = 0
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(536, 540)
-        Me.Controls.Add(Me.Btn_delete)
-        Me.Controls.Add(Me.Button1)
-        Me.Controls.Add(Me.Btn_update)
+        Me.ClientSize = New System.Drawing.Size(536, 518)
+        Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Label15)
-        Me.Controls.Add(Me.Btn_simpan)
-        Me.Controls.Add(Me.Btn_reset)
         Me.Controls.Add(Me.Tfilter)
         Me.Controls.Add(Me.DVG)
         Me.Controls.Add(Me.GroupBox2)
@@ -443,6 +460,8 @@ Partial Class Form1
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
         CType(Me.DVG, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PmbDataSet1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel1.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -486,4 +505,6 @@ Partial Class Form1
     Friend WithEvents CJnsKel As ComboBox
     Friend WithEvents Label15 As Label
     Friend WithEvents Button1 As Button
+    Friend WithEvents PmbDataSet1 As pmbDataSet
+    Friend WithEvents Panel1 As Panel
 End Class
